@@ -1,0 +1,31 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+struct point
+{
+        float x;
+        float y;
+};
+struct rectangle
+{
+        float point1;
+        float point2;
+        float point3;
+};
+int input()
+{
+        int n;
+        printf("Enter the number of rectangles\n");
+        scanf("%d",&n);
+        struct rectangle z[n];
+        for(int i=0;i<n;i++)
+        {
+                printf("Enter the X and Y coordinates of first , second and third  points of the rectangle ((x1,y1),(x2,y2),(x3,y3))\n");
+                scanf("%f%f%f%f%f%f",&z[i].point1.x,&z[i].point1.y,&z[i].point2.x,&z[i].point2.y,&z[i].point3.x,&z[i].point3.y);
+        }
+}
+int main()
+{
+        input();
+}
