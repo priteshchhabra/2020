@@ -1,0 +1,101 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+struct points
+{
+        float x,y;
+};
+struct line
+{
+        struct points point1;
+        struct points point2;
+        struct points point;
+        float d1,d2,d3;
+};
+struct lines
+{
+        struct line num[100];
+        int n;
+};
+int compute()
+{
+        struct lines z;
+        for(int i=0;i<z.n;i++)
+                {
+                        if(z.num[i].d1==(z.num[i].d2 + z.num[i].d3))
+                        {
+                                printf("(%.2f,%.2f) lies between ",z.num[i].point.x,z.num[i].point.y);
+                                printf("(%.2f,%.2f) and (%.2f,%.2f)\n",z.num[i].point1.x,\
+                                        z.num[i].point1.y,z.num[i].point2.x,z.num[i].point2.y);
+                        }
+                        else
+                        {
+                                printf("(%.2f,%.2f) does not lie between ",z.num[i].point.x,z.num[i].point.y);
+                                printf("(%.2f,%.2f) and (%.2f,%.2f)\n",z.num[i].point1.x,z.num[i].point1.y,z.num[i].point2.x,z.num[i].point2.y);
+                        }
+                }
+        return 0;
+}
+int distance_of_P2_and_P()
+{
+        struct lines z;
+        for(int i=0;i<z.n;i++)
+        {
+                z.num[i].d3=sqrt(((z.num[i].point2.x - z.num[i].point.x)*(z.num[i].point2.x - z.num[i].point.x)) +\
+                ((z.num[i].point2.y - z.num[i].point.y)*(z.num[i].point2.y-z.num[i].point.y)));
+                return 3;
+        }
+}
+int distance_of_P1_and_P()
+{
+        struct lines z;
+        for(int i=0;i<z.n;i++)
+        {
+                z.num[i].d2=sqrt(((z.num[i].point1.x - z.num[i].point.x)*\
+                (z.num[i].point1.x-z.num[i].point.x)) + ((z.num[i].point1.y - z.num[i].point.y)*(z.num[i].point1.y-z.num[i].point.y)));
+                return 2;
+        }
+}
+int distance_of_P1_and_P2()
+{
+        struct lines z;
+        for(int i=0;i<z.n;i++)
+        {
+                z.num[i].d1=sqrt(((z.num[i].point2.x - z.num[i].point1.x)*\
+                (z.num[i].point2.x-z.num[i].point1.x)) + ((z.num[i].point2.y - z.num[i].point1.y)*(z.num[i].point2.y-z.num[i].point1.y)));
+                return 1;
+        }
+}
+int input()
+{
+        struct lines z;
+        printf("Enter the number of lines\n");
+        scanf("%d",&z.n);
+        for(int i=0;i<z.n;i++)
+        {
+                printf("Enter the X and Y co-ordinates of point 1 of %dth line\n",i+1);
+                scanf("%f%f",&z.num[i].point1.x,&z.num[i].point1.y);
+                printf("Enter the X and Y co-ordinates of point 2 of %dth line\n",i+1);
+                scanf("%f%f",&z.num[i].point2.x,&z.num[i].point2.y);
+                printf("Enter the X and Y co-ordinates of intermediate point of %dth line\n",i+1);
+                scanf("%f%f",&z.num[i].point.x,&z.num[i].point.y);
+                while((z.num[i].point1.x==z.num[i].point2.x && z.num[i].point1.x==z.num[i].point.x)&&(z.num[i].point1.y==z.num[i].point2.y && z.num[i].point1.y==z.num[i]$
+                {
+                        printf("Enter the X and Y co-ordinates of point 1 of %dth line\n",i+1);
+                        scanf("%f%f",&z.num[i].point1.x,&z.num[i].point1.y);
+                        printf("Enter the X and Y co-ordinates of point 2 of %dth line\n",i+1);
+                        scanf("%f%f",&z.num[i].point2.x,&z.num[i].point2.y);
+                        printf("Enter the X and Y co-ordinates of intermediate point of %dth line\n",i+1);
+                        scanf("%f%f",&z.num[i].point.x,&z.num[i].point.y);
+                }
+        }
+}
+int main()
+{
+        input();
+        distance_of_P1_and_P2();
+        distance_of_P1_and_P();
+        distance_of_P2_and_P();
+        compute();
+}
