@@ -1,0 +1,70 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct sequence
+{
+        char s1[100];
+        char s2[100];
+        char e[100];
+        int m;
+};
+struct sequences
+{
+        struct sequence fibonacci_sequences[100];
+        int n;
+};
+struct fibonacci
+{
+   char b[100];
+};
+struct fibonacci_series
+{
+        struct fibonacci q[100];
+};
+/*int output(struct sequences k, struct fibonacci_series z)
+{
+        for(int p=0;p<k.n;p++)
+        {
+                for(int y=0;y<k.fibonacci_sequences[p].m;y++)
+                {
+                        printf("%s\n",k.fibonacci_sequences[p].s1);
+                }
+                printf("\n");
+        }
+}*/
+int compute(struct sequences k)
+{
+        struct fibonacci_series z;
+        for(int i=0;i<k.n;i++)
+        {
+          for(int j=0;j<k.fibonacci_sequences[i].m;j++)
+                {
+                        printf("%s\n",k.fibonacci_sequences[i].s1);
+                        char *a;
+                        a=strcat(k.fibonacci_sequences[i].s1,k.fibonacci_sequences[i].s2);
+                        strcpy(z.q[i].b,a);
+                        strcpy(k.fibonacci_sequences[i].s2,a);
+                }
+        }
+        //output(k,z);
+}
+int input()
+{
+        struct sequences k;
+        printf("Enter the number of fibonacci series\n");
+        scanf("%d",&k.n);
+        for(int i=0;i<k.n;i++)
+        {
+                printf("Enter the number of lines in %dth sequence\n",i+1);
+                scanf("%d",&k.fibonacci_sequences[i].m);
+                 printf("Enter the first member of the %dth sequenece\n",i+1);
+                scanf("%s",k.fibonacci_sequences[i].s1);
+                printf("Enter the second member of the %dth sequenece\n",i+1);
+                scanf("%s",k.fibonacci_sequences[i].s2);
+        }
+        compute(k);
+}
+int main()
+{
+        input();
+}
