@@ -1,37 +1,47 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 struct point
 {
         float x;
         float y;
 };
-struct circle
+struct circle_pair
 {
         struct point centre1;
         float radius1;
         struct point centre2;
         float radius2;
 };
-struct circles
+struct circle_pairs
 {
-        struct circle circle_count[100];
+        struct circle_pair circle_count[100];
         int n;
 };
-int is_intersecting(struct circles k)
+void display(struct circle_pairs k,float centre_distance)
+{
+        for(int i=0;i<k.n;i++)
+        {
+                if(centre_distance<k.circle_count[i].radius1+k.circle_count[i].radius2)
+                printf("The circles are interesecting with each other\n");
+                else
+                printf("The circles are  not intersecting with each other\n");
+        }
+}
+float compute(struct circle_pairs k)
 {
         float centre_distance;
         for(int i=0;i<k.n;i++)
         {
+                float centre_distance;
                 centre_distance=sqrt((((k.circle_count[i].centre2.x - k.circle_count[i].centre1.x)*(k.circle_count[i].centre2.x - k.circle_count[i].centre1.x))\
                 + ((k.circle_count[i].centre2.y - k.circle_count[i].centre1.y)*(k.circle_count[i].centre2.y - k.circle_count[i].centre1.y))));
-                if(centre_distance<=(k.circle_count[i].radius1 + k.circle_count[i].radius2))
-                {
-
         }
+          return  centre_distance;
 }
-int input()
+struct circle_pairs input()
 {
-        struct circles k;
+        struct circle_pairs k;
         printf("Enter the number of pairs of circles\n");
         scanf("%d",&k.n);
         for(int i=0;i<k.n;i++)
@@ -45,9 +55,13 @@ int input()
                 printf("Enter the X and Y co-ordinates of the center of second circle of %dth pair\n",i+1);
                 scanf("%f%f",&k.circle_count[i].centre2.x,&k.circle_count[i].centre2.y);
         }
-        is_intersecting(k);
+        return k;
 }
 int main()
 {
-        input();
+        struct circle_pairs k;
+        k=input();
+        compute(k);
+        float center_distance;
+        display(k,center_distance);
 }
