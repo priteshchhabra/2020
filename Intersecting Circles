@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct point
+{
+        float x;
+        float y;
+};
+struct circle
+{
+        struct point centre1;
+        float radius1;
+        struct point centre2;
+        float radius2;
+};
+struct circles
+{
+        struct circle circle_count[100];
+        int n;
+};
+int is_intersecting(struct circles k)
+{
+        float centre_distance;
+        for(int i=0;i<k.n;i++)
+        {
+                centre_distance=sqrt((((k.circle_count[i].centre2.x - k.circle_count[i].centre1.x)*(k.circle_count[i].centre2.x - k.circle_count[i].centre1.x))\
+                + ((k.circle_count[i].centre2.y - k.circle_count[i].centre1.y)*(k.circle_count[i].centre2.y - k.circle_count[i].centre1.y))));
+                if(centre_distance<=(k.circle_count[i].radius1 + k.circle_count[i].radius2))
+                {
+
+        }
+}
+int input()
+{
+        struct circles k;
+        printf("Enter the number of pairs of circles\n");
+        scanf("%d",&k.n);
+        for(int i=0;i<k.n;i++)
+        {
+                printf("Enter the radius of first circle of %dth pair\n",i+1);
+                scanf("%f",&k.circle_count[i].radius1);
+                printf("Enter the X and Y co-ordinates of the center of first circle of %dth pair\n",i+1);
+                scanf("%f%f",&k.circle_count[i].centre1.x,&k.circle_count[i].centre1.y);
+                printf("Enter the radius of second circle of %dth pair \n",i+1);
+                scanf("%f",&k.circle_count[i].radius2);
+                printf("Enter the X and Y co-ordinates of the center of second circle of %dth pair\n",i+1);
+                scanf("%f%f",&k.circle_count[i].centre2.x,&k.circle_count[i].centre2.y);
+        }
+        is_intersecting(k);
+}
+int main()
+{
+        input();
+}
