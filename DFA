@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct string_acceptance
+{
+	char s[100]; // string storing array
+	int a[100]; //array to store destination of a
+	int b[100]; // array to store destination of b
+};
+struct accepting_state
+{
+	
+	int w; /* state index */	
+};
+struct accepting_states
+{
+	 
+	int k; /* no of accepting states */
+	struct accepting_state integers_of_accepting_state[100];
+};
+struct DFA
+{
+	int m; /* no of states in the DFA */
+	int n; /* no of transition strings */
+	struct accepting_states q;
+};
+
+struct DFA input_function()
+{
+	struct accepting_states z;
+	struct accepting_state q;
+	struct DFA t;		
+	printf("Enter the number of states\n");
+	scanf("%d",&t.m);
+	printf("Enter the number of accepting states\n");
+	scanf("%d",&z.k);
+	for(int i=0;i<z.k;i++)
+	{
+		printf("Enter the position of %dth accepting state\n",i+1);
+		scanf("%d",&z.integers_of_accepting_state[i].w);
+	}
+	for(int j=0;j<t.m;j++)
+	{
+		for(int p=0;p<t.m;p++)
+		{
+			scanf("%d",&z.integers_of_accepting_state[j].q.a[p]);
+		}
+		for(int g=0;g<t.m;g++)
+		{
+			scanf("%d",&z.integers_of_accepting_state[j].q.b[g]);
+		} 
+	}
+	return z;
+}
+struct string_acceptance input_function2()
+{
+	struct DFA t;
+	struct accepting_state q;
+	struct accepting_states z;
+	printf("Enter the number of strings\n");
+	scanf("%d",&t.n);
+	for(int y=0;y<t.n;y++)
+	{
+		printf("enter the %dth string\n",y+1);
+		scanf("%s",z.integers_of_accepting_state.q.n.s[y]);
+	}
+	return z; 
+}
+int main()
+{
+	input_function();
+	input_function2();
+}	
