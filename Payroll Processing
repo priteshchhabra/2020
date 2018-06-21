@@ -24,11 +24,24 @@ struct employee_payment
 {
         float payment;
 };
-float compute(struct employee k)
+void output(struct employee_payment q,struct employee k)
 {
+        printf("%s : %.2f\n",k.name,q.payment);
+}
+struct employee_payment compute(struct employee k)
+{
+        float sum=0;
         struct employee_payment q;
         for(int i=0;i<k.z.m;i++)
-        q.payment=((k.z.time_cards_record[i].
+        {
+                sum+=k.z.time_cards_record[i].time_worked;
+        }
+        for(int i=0;i<k.z.m;i++)
+                {
+                q.payment=(((sum)/60)*k.hourly_wage);
+        }
+        return q;
+}
 struct employee input()
 {
         struct employee k;
@@ -37,7 +50,7 @@ struct employee input()
         printf("Enter %s's hourly wage\n",k.name);
         scanf("%f",&k.hourly_wage);
         printf("Enter the number of time cards submitted\n");
-                scanf("%d",&k.z.m);
+        scanf("%d",&k.z.m);
         for(int i=0;i<k.z.m;i++)
         {
                 scanf("%f",&k.z.time_cards_record[i].time_worked);
@@ -46,11 +59,10 @@ struct employee input()
 }
 int main()
 {
+        struct employee_payment q;
         struct employee k;
         k=input();
-        //compute(k);
+        q=compute(k);
+        output(q,k);
 }
-
-
-
 
