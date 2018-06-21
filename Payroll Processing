@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct time_card_record
+{
+        float time_worked;
+};
+struct time_cards_record
+{
+        struct time_card_record time_cards_record[100];
+        int m;
+};
+struct employee
+{
+        char name[100];
+        float hourly_wage;
+        struct time_cards_record z;
+};
+struct employees
+{
+        struct employee employees[100];
+        int n;
+};
+struct employee_payment
+{
+        float payment;
+};
+float compute(struct employee k)
+{
+        struct employee_payment q;
+        for(int i=0;i<k.z.m;i++)
+        q.payment=((k.z.time_cards_record[i].
+struct employee input()
+{
+        struct employee k;
+        printf("Enter the name of the employee\n");
+        scanf("%s",k.name);
+        printf("Enter %s's hourly wage\n",k.name);
+        scanf("%f",&k.hourly_wage);
+        printf("Enter the number of time cards submitted\n");
+                scanf("%d",&k.z.m);
+        for(int i=0;i<k.z.m;i++)
+        {
+                scanf("%f",&k.z.time_cards_record[i].time_worked);
+        }
+        return k;
+}
+int main()
+{
+        struct employee k;
+        k=input();
+        //compute(k);
+}
+
+
+
+
