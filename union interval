@@ -1,0 +1,44 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+struct interval
+{
+        int upper_bound;
+        int lower_bound;
+};
+struct intervals
+{
+        struct interval intervals[100];
+        int r;
+};
+struct unions
+{
+        struct intervals k;
+        int n;
+};
+struct unions input_function()
+{
+        struct unions q;
+        printf("Enter the number of unions\n");
+        scanf("%d",&q.n);
+        for(int j=0;j<q.n;j++)
+        {
+                printf("Enter the lower and upper bounds of %dth interval
+struct intervals input()
+{
+        struct intervals z;
+        printf("Enter the number of intervals\n");
+        scanf("%d",&z.r);
+        for(int i=0;i<z.r;i++)
+        {
+                printf("Enter the lower and upper bounds of %dth interval\n",i+1);
+                scanf("%d%d",&z.intervals[i].lower_bound,&z.intervals[i].upper_bound);
+        }
+        return z;
+}
+int main()
+{
+        struct intervals z;
+        z=input();
+}
+
