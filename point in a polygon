@@ -1,0 +1,114 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+struct point
+{
+        float x;
+        float y;
+};
+struct vertex
+{
+        struct point vertex;
+};
+struct polygon
+{
+        struct vertex vertices[100];
+        int m;
+};
+struct points
+{
+        struct point points[100];
+        int n;
+};
+struct result
+{
+        bool res;
+};
+struct result compute(struct polygon k,struct points z)
+{
+        for(int i=0;i<k.m;i++)
+        {
+                for(int j=0;j<z.n;j++)
+                {
+
+                }
+}
+struct polygon vertices_input()
+{
+        struct polygon k;
+        printf("Enter the number of vertices of the polygon\n");
+                scanf("%d",&k.m);
+        while(k.m<3)
+        {
+                printf("Error!!,Invalid input,The number of vertices must be greater than 3\n");
+                scanf("%d",&k.m);
+        }
+        for(int i=0;i<k.m;i++)
+        {
+                if(i==0)
+                {
+                        printf("Enter %dst point of the polygon\n",i+1);
+                        scanf("%f%f",&k.vertices[i].vertex.x,&k.vertices[i].vertex.y);
+                }
+                else if(i==1)
+                {
+                        printf("Enter %dnd point of the polygon\n",i+1);
+                        scanf("%f%f",&k.vertices[i].vertex.x,&k.vertices[i].vertex.y);
+                }
+                else if(i==2)
+                {
+                                {
+                        printf("Enter %drd point of the polygon\n",i+1);
+                        scanf("%f%f",&k.vertices[i].vertex.x,&k.vertices[i].vertex.y);
+                }
+                else
+                {
+                        printf("Enter %dth point of the polygon\n",i+1);
+                        scanf("%f%f",&k.vertices[i].vertex.x,&k.vertices[i].vertex.y);
+                }
+        }
+        return k;
+}
+struct points points_input()
+{
+        struct points z;
+        printf("Enter the number of points\n");
+        scanf("%d",&z.n);
+        for(int i=0;i<z.n;i++)
+        {
+                if(i==0)
+                {
+                                {
+                        printf("Enter %dst point\n",i+1);
+                        scanf("%f%f",&z.points[i].x,&z.points[i].y);
+                }
+                else if(i==1)
+                {
+                        printf("Enter %dnd point\n",i+1);
+                        scanf("%f%f",&z.points[i].x,&z.points[i].y);
+                }
+                else if(i==2)
+                {
+                printf("Enter %drd point\n",i+1);
+                scanf("%f%f",&z.points[i].x,&z.points[i].y);
+                }
+                else
+                {
+                        printf("Enter %dth point\n",i+1);
+                        scanf("%f%f",&z.points[i].x,&z.points[i].y);
+                }
+        }
+        return z;
+        }
+int main()
+{
+        struct polygon k;
+        struct points z;
+        k=vertices_input();
+        z=points_input();
+        compute(k,z);
+
+}
+
+
+
